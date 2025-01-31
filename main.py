@@ -26,13 +26,16 @@ client = app.client
 def useridToChannel(
     inputs: dict, fail: Fail, complete: Complete, logger: logging.Logger
 ):
-    user_id = inputs["user_id"]
     try:
-        complete({"channel_id": user_id})
+        user_id = inputs["user_id"]
+        log(user_id, "DEBUG")
+        channel_id = client.conversations_open(users=user_id)["channel"]["id"]
+        complete({"channel_id": channel_id})
     except:
         log(format_exc(), "ERROR")
-        # fail("Am fail.")
-        # We can't run fail() here, unsure why.
+        fail(
+            "An error occured app-side trying to process this workflow step. Please contact <@U06JLP2R8JV> (Firepup650) about this issue."
+        )
 
 
 @app.function("get_message_content")
