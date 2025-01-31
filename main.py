@@ -49,7 +49,6 @@ def getMessageContent(
         )
 
         message = result["messages"][0]["text"]
-        log(message, "DEBUG")
         complete({"message_content": message})
     except:
         log(format_exc(), "ERROR")
