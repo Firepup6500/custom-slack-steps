@@ -27,9 +27,8 @@ def useridToChannel(
     inputs: dict, fail: Fail, complete: Complete, logger: logging.Logger
 ):
     try:
-        user_id = inputs["user_id"]
-        log(user_id, "DEBUG")
-        channel_id = client.conversations_open(users=user_id)["channel"]["id"]
+        ids = [inputs["user_id"], inputs["workflow_id"]]
+        channel_id = client.conversations_open(users=ids)["channel"]["id"]
         complete({"channel_id": channel_id})
     except:
         log(format_exc(), "ERROR")
