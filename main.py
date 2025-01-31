@@ -6,7 +6,6 @@ from logs import log
 from traceback import format_exc
 
 load_dotenv()
-logging.basicConfig(level=logging.DEBUG)
 
 for requiredVar in ["SLACK_BOT_TOKEN", "SLACK_SIGNING_SECRET", "PORT"]:
     if not os.environ.get(requiredVar):
