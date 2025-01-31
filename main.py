@@ -34,7 +34,7 @@ def useridToChannel(
     except:
         log(format_exc(), "ERROR")
         fail(
-            "An error occured app-side trying to process this workflow step. Please contact <@U06JLP2R8JV> (Firepup650) about this issue."
+            "An error occured app-side trying to process this workflow step. Please contact <@U06JLP2R8JV> about this issue."
         )
 
 
@@ -56,7 +56,7 @@ def getMessageContent(
     except:
         log(format_exc(), "ERROR")
         fail(
-            "An error occured app-side trying to process this workflow step. Please contact <@U06JLP2R8JV> (Firepup650) about this issue."
+            "An error occured app-side trying to process this workflow step. Please contact <@U06JLP2R8JV> about this issue."
         )
 
 
