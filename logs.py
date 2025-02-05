@@ -9,7 +9,7 @@ def log(
     level: str = "LOG",
     origin: str = None,  # pyright: ignore[reportArgumentType]
     time: Union[dt, str] = "now",
-) -> bytes:
+) -> None:
     message = message.strip()
     if level in ["EXIT", "CRASH", "FATAL", "ERROR"]:
         stream = stderr
@@ -43,4 +43,3 @@ def log(
                 file=stream,
                 flush=True,
             )
-    return (log[5:] + "\r\n").encode("utf8")
