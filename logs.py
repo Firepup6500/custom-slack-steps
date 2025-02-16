@@ -7,7 +7,7 @@ from typing import Union
 def log(
     message: str,
     level: str = "LOG",
-    origin: str = None,  # pyright: ignore[reportArgumentType]
+    origin: Union[str, None] = None,  # pyright: ignore[reportArgumentType]
     time: Union[dt, str] = "now",
 ) -> None:
     message = message.strip()
