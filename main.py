@@ -58,6 +58,21 @@ def useridToChannel(
         )
 
 
+@app.function("convert_string_to_user")
+def useridToChannel(
+    inputs: dict, fail: Fail, complete: Complete, logger: logging.Logger
+):
+    try:
+        if debug:
+            log(f'{inputs["str"]}', "DEBUG")
+        complete({"user_id": inputs["str"]})
+    except:
+        log(format_exc(), "ERROR")
+        fail(
+            "An error occured app-side trying to process the `convert_string_to_user` workflow step. Please contact <@U06JLP2R8JV> about this issue."
+        )
+
+
 @app.function("get_message_content")
 def getMessageContent(
     inputs: dict, fail: Fail, complete: Complete, logger: logging.Logger
